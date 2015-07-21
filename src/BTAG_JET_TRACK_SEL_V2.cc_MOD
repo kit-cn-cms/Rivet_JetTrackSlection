@@ -1,0 +1,186 @@
+// -*- C++ -*-
+#include "Rivet/Analysis.hh"
+#include "Rivet/Tools/Logging.hh"
+#include "Rivet/Tools/ParticleIdUtils.hh"
+#include "Rivet/Projections/FinalState.hh"
+#include "Rivet/Projections/ChargedFinalState.hh"
+#include "Rivet/Projections/HeavyHadrons.hh"
+#include "Rivet/Projections/FastJets.hh"
+#include "Rivet/Projections/ChargedLeptons.hh"
+
+namespace Rivet {
+
+
+  class BTAG_JET_TRACK_SEL_V2 : public Analysis {
+  public:
+
+    /// Constructor
+    BTAG_JET_TRACK_SEL_V2()
+      : Analysis("BTAG_JET_TRACK_SEL_V2")
+    {
+      setNeedsCrossSection(false);
+    }
+
+
+  public:
+
+    /// @name Analysis methods
+    //@{
+
+    /// Book histograms and initialise projections before the run
+    void init() {
+      
+      const FinalState fs(-2.5,2.5);
+      addProjection(fs, "FS");
+      const HeavyHadrons hh(-2.5,2.5);
+      addProjection(hh, "HH");
+      const FastJets fj(FastJets::ANTIKT, 0.5);
+      //const FastJets fj(fs, FastJets::ANTIKT, 0.5);
+      addProjection(fj, "Jets");
+    }
+
+
+    /// Perform the per-event analysis
+    void analyze(const Event& event) {
+      
+      //Get final state particles
+      const Particles& particles = applyProjection<FinalState>(event,"FS").particles();
+      
+      Particles ghostParticles = particles;
+      
+      //Get final state particles
+      Particles bHadrons = applyProjection<HeavyHadrons>(event,"HH").bHadrons(5.);
+      foreach(Particle& bH, bHadrons){
+        FourMomentum bHMomentum = bH.momentum();
+        double scale = 1e-20/(bHMomentum.p3().mod());
+        
+        ghostParticles.push_back(Particle(bH.pid(), FourMomentum(bHMomentum.E()*scale,bHMomentum.px()*scale,bHMomentum.py()*scale,bHMomentum.pz()*scale)));
+      }
+      
+      const Particles modParticles = ghostParticles;
+      
+      //Get ak5 Jets
+      const FastJets& fjProjetction = applyProjection<FastJets>(event, "Jets");
+      fjProjetction.calc(modParticles);
+      Jets jets = fjProjetction.jetsByPt(pt_min_jets);
+      
+      /*
+      bool containsBottom = false;
+      foreach (const Jet& j, jets) {
+        if(j.containsBottom()){
+          containsBottom = true;
+          break;
+        }
+      }
+      
+      if(containsBottom){
+        int nP = 0;
+        foreach(const Particle& p, particles){
+	        cout << nP << ". Jet Particle PID: " << p.pid() << "   Has Bottom? " << p.hasBottom() << endl;
+          nP++;
+        }
+      }
+      */
+      
+      //Initialize Loop Variables
+      int njet = 0;
+      
+      //Loop over all Jets
+
+      
+      foreach (const Jet& j, jets) {
+        
+	      if(j.containsBottom()){
+	        Particles jetParticles = j.particles();
+	        cout << njet << ". Jet: Contains Bottom " << j.containsBottom() << endl;
+     	    
+          int nP = 0; 
+	        foreach(const Particle& p, jetParticles){
+	          cout << nP << ". Jet Particle PID: " << p.pid() << "   Has Bottom? " << p.hasBottom() << endl;
+	          /*
+	          HepMC::GenVertex* gv = p.genParticle()->production_vertex();
+	          if (gv) {
+	            int nPi = 0;
+	            foreach (const GenParticle* pi, Rivet::particles(gv, HepMC::ancestors)) {
+	              //const PdgId pid2 = pi->pdg_id();
+	              //if (PID::isHadron(pid2) && PID::hasBottom(pid2)) return true;
+		            if(PID::hasBottom(pi->pdg_id())){
+	                cout << nPi << ". Ancestor Particle PID: " << pi->pdg_id() << endl;
+	              }
+	              nPi++;
+	            }
+            }
+            */
+	          nP++;
+	        }
+	      }
+
+	      njet++;
+      }
+      
+      /*
+      bool containsBottom = false;
+      
+      foreach (const Jet& j, jets) {
+        if(j.containsBottom()){
+          containsBottom = true;
+          break;
+        }
+      }
+      */
+      /*
+      int nP = 0;
+      foreach(const Particle& p, bHadrons){
+	      cout << nP << ". Jet Particle PID: " << p.pid() << "   Has Bottom? " << p.hasBottom() << endl;
+        nP++;
+      }
+      */
+    }
+
+
+    /// Normalise histograms etc., after the run
+    void finalize() {
+    }
+
+    //@}
+    
+
+
+  private:
+
+    int njetflavors;
+    int jetflavor[4];
+    std::string jetflavorname[4];
+
+    //Vertex Parameters
+    const float pvertexcutoff = 0.005;
+    const float svertexcutoff = 0.005;
+    
+    //Jet Selection Parameters
+    const float pt_min_jets    = 20.*GeV;
+    const float eta_max_jets   = 2.5;
+      
+    //Charged Particle Selection Parameters
+    const float pt_min_cp      = 1.*GeV;
+    const float eta_max_cp     = 2.5;
+    const float dr_jet_cp_max  = .3;
+    const float d_jet_cp_max   = 700*micrometer;
+    const float dxy_pv_cp_max  = .2*cm; 
+    const float dz_pv_cp_max   = 17.*cm;
+    const float d_PCA_PV_max   = 5.*cm;
+    
+    //Muon Selection Parameters
+    const float pt_min_lep     = 1.*GeV;
+    const float eta_max_lep    = 2.1;
+    const float dr_jet_lep_max  = .3;
+    
+  private:
+
+  };
+
+
+
+  // The hook for the plugin system
+  DECLARE_RIVET_PLUGIN(BTAG_JET_TRACK_SEL_V2);
+
+}

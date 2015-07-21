@@ -1,0 +1,46 @@
+# BEGIN PLOT
+DrawOnly=/nfs/dust/cms/user/shwillia/BTV/Dec14/QCD_Pt-50to80_Tune4C_8TeV_pythia8/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_LightJets /nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_Tune4C_8TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_LightJets
+RatioPlotReference=/nfs/dust/cms/user/shwillia/BTV/Dec14/QCD_Pt-50to80_Tune4C_8TeV_pythia8/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_LightJets
+RatioPlot=1
+Legend=1
+XLabel=Jet Flavor
+YLabel=Normalized to Unity
+LogY=1
+NormalizeToSum=1
+# END PLOT
+
+# BEGIN HISTOGRAM /nfs/dust/cms/user/shwillia/BTV/Dec14/QCD_Pt-50to80_Tune4C_8TeV_pythia8/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_LightJets
+LineColor={[HTML]{EE3311}}
+LineStyle=solid
+Path=/nfs/dust/cms/user/shwillia/BTV/Dec14/QCD_Pt-50to80_Tune4C_8TeV_pythia8/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_LightJets
+ScaledBy=5.4225141703851557e-07
+Title=MC History Flavor
+XLabel=
+YLabel=
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.500000e+00	-5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+-5.000000e-01	5.000000e-01	1.000000e+00	7.363772e-04	7.363772e-04
+5.000000e-01	1.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+1.500000e+00	2.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+2.500000e+00	3.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+3.500000e+00	4.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+4.500000e+00	5.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM /nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_Tune4C_8TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_LightJets
+LineColor={[HTML]{3366FF}}
+LineStyle=solid
+Path=/nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_Tune4C_8TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_LightJets
+Title=Ghost Hadron Flavor
+XLabel=
+YLabel=
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.500000e+00	-5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+-5.000000e-01	5.000000e-01	1.911511e+06	1.382574e+03	1.382574e+03
+5.000000e-01	1.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+1.500000e+00	2.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+2.500000e+00	3.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+3.500000e+00	4.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+4.500000e+00	5.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+# END HISTOGRAM
+

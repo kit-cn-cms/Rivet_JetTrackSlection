@@ -1,0 +1,62 @@
+# BEGIN PLOT
+DrawOnly=/nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia6_QCD_Pt-50to80_MuEnrichedPt5_TuneZ2star_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets /nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_MuEnrichedPt5_Tune4C_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets /nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_MuEnrichedPt5_PionKaonDecay_Tune4C_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+RatioPlotReference=/nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia6_QCD_Pt-50to80_MuEnrichedPt5_TuneZ2star_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+RatioPlot=1
+Legend=1
+XLabel=Jet Flavor
+YLabel=Normalized to Unity
+LogY=1
+NormalizeToSum=1
+# END PLOT
+
+# BEGIN HISTOGRAM /nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia6_QCD_Pt-50to80_MuEnrichedPt5_TuneZ2star_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+LineColor={[HTML]{EE3311}}
+LineStyle=solid
+Path=/nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia6_QCD_Pt-50to80_MuEnrichedPt5_TuneZ2star_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+Title=BTAG_JET_TRACK_SEL
+XLabel=
+YLabel=
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.500000e+00	-5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+-5.000000e-01	5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+5.000000e-01	1.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+1.500000e+00	2.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+2.500000e+00	3.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+3.500000e+00	4.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+4.500000e+00	5.500000e+00	2.465640e+05	4.965521e+02	4.965521e+02
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM /nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_MuEnrichedPt5_Tune4C_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+LineColor={[HTML]{3366FF}}
+LineStyle=solid
+Path=/nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_MuEnrichedPt5_Tune4C_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+Title=BTAG_JET_TRACK_SEL
+XLabel=
+YLabel=
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.500000e+00	-5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+-5.000000e-01	5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+5.000000e-01	1.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+1.500000e+00	2.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+2.500000e+00	3.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+3.500000e+00	4.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+4.500000e+00	5.500000e+00	1.184878e+06	1.088521e+03	1.088521e+03
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM /nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_MuEnrichedPt5_PionKaonDecay_Tune4C_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+LineColor={[HTML]{109618}}
+LineStyle=solid
+Path=/nfs/dust/cms/user/shwillia/BTV/Apr15/MC_Pythia8_QCD_Pt-50to80_MuEnrichedPt5_PionKaonDecay_Tune4C_13TeV/BTAG_JET_TRACK_SEL.yoda/BTAG_JET_TRACK_SEL/A_JetFlavor_BottomJets
+Title=BTAG_JET_TRACK_SEL
+XLabel=
+YLabel=
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.500000e+00	-5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+-5.000000e-01	5.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+5.000000e-01	1.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+1.500000e+00	2.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+2.500000e+00	3.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+3.500000e+00	4.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+4.500000e+00	5.500000e+00	1.789316e+06	1.337653e+03	1.337653e+03
+# END HISTOGRAM
+
